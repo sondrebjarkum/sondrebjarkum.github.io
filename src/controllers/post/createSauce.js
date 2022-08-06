@@ -23,7 +23,7 @@ const pushToBranch = async () => {
     try{
         console.log("commiting")
         // git.commit("Update sauces", "sauces").push('origin', 'testing');
-        git.add('./*')
+        git.add(["./data/sauces.json"])
             .commit("Update sauces")
             .push(['-u', 'origin', 'testing'], () => console.log('push done'));
     }catch(e){
@@ -65,17 +65,9 @@ const writeFile = async () => {
 
 exports.createSauce = async (req, res, next) => {
     console.log("Create sauce controller fired...")
-    // console.log(req.body)
-    
-    // const parse2 = str =>
-    // Promise.resolve(str)
-    //     .then(writeFile)
-    //     .then(pushToBranch)
-    // parse2("asd")
-    // .then(console.log("Done..."))
-
 
     writeFile()
+    pushToBranch()
 
     
 
