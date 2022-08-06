@@ -19,14 +19,18 @@ const addRemoteRepository = async () => {
 }
 const pushToBranch = async () => {
     console.log("pushToBranch")
-    setTimeout(() => {
+    
+    try{
         console.log("commiting")
-        git.commit("Update sauces")
-    }, 5000);
-    setTimeout(() => {
-        console.log("pushing")
-        git.push('origin', 'testing');
-    }, 8000);
+        // git.commit("Update sauces", "sauces").push('origin', 'testing');
+        git.add('./*')
+            .commit("Update sauces")
+            .push(['-u', 'origin', 'testing'], () => console.log('push done'));
+    }catch(e){
+        console.log(e)
+    }
+    console.log("Git done")
+
 }
 const writeFile = async () => {
     console.log("Getting sauces file...")
@@ -45,7 +49,7 @@ const writeFile = async () => {
     result.push(testObject)
     
     const filter = result.filter( (e) => e.name === "Blåbær")
-    console.log(filter)
+    // console.log(filter)
 
     console.log("Writing to file...")
 
@@ -54,6 +58,7 @@ const writeFile = async () => {
             console.log(err);
         else {
             console.log("File written successfully\n");
+            pushToBranch()
         }
     })
 }
@@ -61,8 +66,18 @@ const writeFile = async () => {
 exports.createSauce = async (req, res, next) => {
     console.log("Create sauce controller fired...")
     // console.log(req.body)
-    await writeFile()
-    await pushToBranch()
+    
+    // const parse2 = str =>
+    // Promise.resolve(str)
+    //     .then(writeFile)
+    //     .then(pushToBranch)
+    // parse2("asd")
+    // .then(console.log("Done..."))
+
+
+    writeFile()
+
+    
 
     await res.status(200).json({
         type: "success",
