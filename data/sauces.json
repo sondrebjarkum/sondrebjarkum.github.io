@@ -36,5 +36,14 @@
     "imgurl": "asdasd",
     "tags": [ "asd" ],
     "chilis": [ "asd" ]
+  },
+  {
+    "brand": "test8",
+    "name": "test8",
+    "strength": "1",
+    "desc": "test8test8test8test8",
+    "imgurl": "test8",
+    "tags": [ "test8", "test8" ],
+    "chilis": [ "test8", "test8", "test8" ]
   }
 ]
