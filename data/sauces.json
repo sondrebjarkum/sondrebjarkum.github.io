@@ -9,7 +9,13 @@
     "tags": [ "spisskummen", "allrounder" ],
     "chilis": [ "Cayenne", "Poblana", "Serrano" ]
   },
-  {},
-  {},
-  {}
+  {
+    "brand": "test6",
+    "name": "test6",
+    "strength": "1",
+    "desc": "test6test6test6",
+    "imgurl": "test6",
+    "tag": [ "test6", "test6" ],
+    "chili": [ "test6", "test6" ]
+  }
 ]
