@@ -17,5 +17,15 @@
     "imgurl": "test6",
     "tag": [ "test6", "test6" ],
     "chili": [ "test6", "test6" ]
+  },
+  {
+    "tags": [ "asdas", "asd ads " ],
+    "chilis": [ "asdasd", "fff" ],
+    "brand": "test8",
+    "name": "test8",
+    "strength": "1",
+    "desc": "test8 test8test8test8test8 test8",
+    "imgurl": "test8",
+    "hotones": true
   }
 ]
