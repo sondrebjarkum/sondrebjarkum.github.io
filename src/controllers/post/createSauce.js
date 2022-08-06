@@ -23,11 +23,11 @@ const pushToBranch = async (resolve, reject) => {
     console.log("pushToBranch")
     
     try{
-        console.log("commiting")
+        console.log("3. commiting")
         // git.commit("Update sauces", "sauces").push('origin', 'testing');
         git.add(["./data/sauces.json"])
             .commit("Update sauces")
-            .push(['-u', 'origin', 'testing'], () => resolve("Git done...!"));
+            .push(['-u', 'origin', 'testing'], () => resolve("4. Git done...!"));
     }catch(e){
         console.log(e)
         reject(new Error('Something is not right in git!'))
@@ -36,27 +36,26 @@ const pushToBranch = async (resolve, reject) => {
 
 }
 const writeFile = async (obj) => {
-    console.log("Getting sauces file...")
 
     return new Promise( (resolve, reject) => {
 
     var result = JSON.parse(fs.readFileSync('./data/sauces.json', 'utf8'))
 
-    result.push(obj)
+        result.push(obj)
 
-    console.log("Writing to file...")
+        console.log("1. Writing to file...")
 
-    fs.writeFile("./data/sauces.json", beautify(result, null, 2, 100), (err) => {
-        if (err){
-            console.log(err);
-            reject(new Error('Something is not right in file writing!'))
-        }
-        else {
-            console.log("File written successfully\n");
-            // pushToBranch()
-            resolve("File written successfully")
-        }
-    })
+        fs.writeFile("./data/sauces.json", beautify(result, null, 2, 100), (err) => {
+            if (err){
+                console.log(err);
+                reject(new Error('Something is not right in file writing!'))
+            }
+            else {
+                console.log("2. File written successfully\n");
+                // pushToBranch()
+                resolve("File written successfully")
+            }
+        })
 
     })
     
@@ -79,8 +78,10 @@ exports.createSauce = async (req, res, next) => {
     //         });
     //     }) )
     const obj = req.body
+    
     writeFile(obj)
     .then(new Promise(pushToBranch).then(() => {
+        console.log("3. sending response...")
         res.status(200).json({
             type: "success",
             message: "Sauce has been added successfully!",
