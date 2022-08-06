@@ -17,7 +17,9 @@ const addRemoteRepository = async () => {
     // console.log(remote)
 }
 const pushToBranch = async () => {
-    git.push('origin', 'testing');
+    setTimeout(() => {
+        git.push('origin', 'testing');
+    }, 5000);
 }
 const writeFile = async () => {
     console.log("Getting sauces file...")
