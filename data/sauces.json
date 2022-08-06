@@ -1939,5 +1939,15 @@
     "imageurl": "ssblåbær.jpg",
     "tags": [ "blåbær" ],
     "chilis": [ "Ghost" ]
+  },
+  {
+    "brand": "asdasd",
+    "name": "Blåbadasær",
+    "strength": "1",
+    "price": "169",
+    "descr": "Sterk-- saus som smaker mye av blåbær. Morsom på pannekaker, fin i gryter og sauser.",
+    "imageurl": "ssblåbær.jpg",
+    "tags": [ "blåbær" ],
+    "chilis": [ "Ghost" ]
   }
 ]
