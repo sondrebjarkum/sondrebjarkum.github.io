@@ -19,9 +19,11 @@ const addRemoteRepository = async () => {
 }
 const pushToBranch = async () => {
     setTimeout(() => {
+        console.log("commiting")
         git.commit("Update sauces")
     }, 5000);
     setTimeout(() => {
+        console.log("pushing")
         git.push('origin', 'testing');
     }, 8000);
 }
@@ -58,8 +60,10 @@ const writeFile = async () => {
 exports.createSauce = async (req, res, next) => {
     console.log("Create sauce controller fired...")
     // console.log(req.body)
-    
-    res.status(200).json({
+    await writeFile()
+    await pushToBranch()
+
+    await res.status(200).json({
         type: "success",
         message: "Post created successfully",
         data: {
@@ -67,7 +71,6 @@ exports.createSauce = async (req, res, next) => {
         },
     });
 
-    await writeFile()
-    await pushToBranch()
+    
     
 }
