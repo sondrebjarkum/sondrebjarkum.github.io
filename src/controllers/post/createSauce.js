@@ -3,6 +3,7 @@ const git = simpleGit.default();
 const fs = require('fs');
 const e = require("cors");
 const { setTimeout } = require("timers/promises");
+const beautify = require("json-beautify");
 
 const addRemoteRepository = async () => {
     // await git.checkout("testCheckout");
@@ -17,6 +18,7 @@ const addRemoteRepository = async () => {
     // const remote = await git.listRemote()
     // console.log(remote)
 }
+
 const pushToBranch = async (resolve, reject) => {
     console.log("pushToBranch")
     
@@ -35,28 +37,16 @@ const pushToBranch = async (resolve, reject) => {
 }
 const writeFile = async (obj) => {
     console.log("Getting sauces file...")
-    console.log(obj)
+
     return new Promise( (resolve, reject) => {
 
     var result = JSON.parse(fs.readFileSync('./data/sauces.json', 'utf8'))
-    // const testObject = {
-    //     brand: 'Sondresaus',
-    //     name: 'Blåbær',
-    //     strength: '7',
-    //     price: '169',
-    //     descr: 'Sterk-- saus som smaker mye av blåbær. Morsom på pannekaker, fin i gryter og sauser.',
-    //     imageurl: 'ssblåbær.jpg',
-    //     tags: [ 'blåbær' ],
-    //     chilis: [ 'Ghost' ]
-    // }
+
     result.push(obj)
-    
-    const filter = result.filter( (e) => e.name === "Blåbær")
-    // console.log(filter)
 
     console.log("Writing to file...")
 
-    fs.writeFile("./data/sauces.json", JSON.stringify(result), (err) => {
+    fs.writeFile("./data/sauces.json", beautify(result, null, 2, 100), (err) => {
         if (err){
             console.log(err);
             reject(new Error('Something is not right in file writing!'))
