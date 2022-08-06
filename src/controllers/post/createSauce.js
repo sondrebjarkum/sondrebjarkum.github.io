@@ -2,6 +2,7 @@ const simpleGit = require("simple-git");
 const git = simpleGit.default();
 const fs = require('fs');
 const e = require("cors");
+const { setTimeout } = require("timers/promises");
 
 const addRemoteRepository = async () => {
     // await git.checkout("testCheckout");
@@ -18,8 +19,11 @@ const addRemoteRepository = async () => {
 }
 const pushToBranch = async () => {
     setTimeout(() => {
-        git.push('origin', 'testing');
+        git.commit("Update sauces")
     }, 5000);
+    setTimeout(() => {
+        git.push('origin', 'testing');
+    }, 8000);
 }
 const writeFile = async () => {
     console.log("Getting sauces file...")
