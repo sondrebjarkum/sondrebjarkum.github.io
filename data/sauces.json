@@ -9,24 +9,5 @@
     "tags": [ "spisskummen", "allrounder" ],
     "chilis": [ "Cayenne", "Poblana", "Serrano" ]
   },
-  {
-    "brand": "Test brand",
-    "name": "Test name",
-    "strength": "3",
-    "price": "",
-    "descr": "Relativt mild saus med klassisk preg av cumin. Flott med meksikansk.",
-    "imageurl": "test.jpg",
-    "tags": [ "spisskummen", "allrounder" ],
-    "chilis": [ "Cayenne", "Poblana", "Serrano" ]
-  },
-  {
-    "brand": "Test brand",
-    "name": "Test name",
-    "strength": "3",
-    "price": "",
-    "descr": "Relativt mild saus med klassisk preg av cumin. Flott med meksikansk.",
-    "imageurl": "test.jpg",
-    "tags": [ "spisskummen", "allrounder" ],
-    "chilis": [ "Cayenne", "Poblana", "Serrano" ]
-  }
+  {}
 ]
