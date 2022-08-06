@@ -62,17 +62,15 @@ exports.createSauce = async (req, res, next) => {
     console.log("Create sauce controller fired...")
     // console.log(req.body)
     await writeFile()
-    await pushToBranch().then( (res) => {
-        await res.status(200).json({
-            type: "success",
-            message: "Post created successfully",
-            data: {
-            // post,
-            },
-        });
-    })
+    await pushToBranch()
 
-    
+    await res.status(200).json({
+        type: "success",
+        message: "Post created successfully",
+        data: {
+        // post,
+        },
+    });
 
     
     
