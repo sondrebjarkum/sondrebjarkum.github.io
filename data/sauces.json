@@ -45,5 +45,15 @@
     "imgurl": "test8",
     "tags": [ "test8", "test8" ],
     "chilis": [ "test8", "test8", "test8" ]
+  },
+  {
+    "brand": "test9",
+    "name": "test9",
+    "strength": "9",
+    "desc": "test9test9test9test9test9",
+    "imgurl": "test9",
+    "tags": [ "test9" ],
+    "chilis": [ "test9" ],
+    "hotones": true
   }
 ]
