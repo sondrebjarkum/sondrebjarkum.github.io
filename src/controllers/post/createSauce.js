@@ -1,33 +1,57 @@
 const simpleGit = require("simple-git");
 const git = simpleGit.default();
+const fs = require('fs');
+const e = require("cors");
 
 const addRemoteRepository = async () => {
     // await git.checkout("testCheckout");
     // const branch = await git.branch();
     // console.log(branch.current)
-    try{
-        await git.addRemote('sauces', "https://github.com/sondrebjarkum/sondrebjarkum.github.io")
+    // try{
+    //     await git.addRemote('sauces', "https://github.com/sondrebjarkum/sondrebjarkum.github.io")
         
-    }catch{
-        console.log("Remote already exists!")
-    }
+    // }catch{
+    //     console.log("Remote already exists!")
+    // }
     // const remote = await git.listRemote()
     // console.log(remote)
 }
+const pushToBranch = async () => {
+    git.push('origin', 'testing');
+}
+const writeFile = async () => {
+    console.log("Getting sauces file...")
 
-const pushToRemote = async () => {
-    const remotes = await git.getRemotes(true)
-    const filtered = remotes.filter( e => e.name === 'sauces').map( e => e.refs.push)
-    console.log(filtered)
-    git.push(filtered)
+    var result = JSON.parse(fs.readFileSync('./data/sauces.json', 'utf8'))
+    const testObject = {
+        brand: 'Sondresaus',
+        name: 'Blåbær',
+        strength: '7',
+        price: '169',
+        descr: 'Sterk-- saus som smaker mye av blåbær. Morsom på pannekaker, fin i gryter og sauser.',
+        imageurl: 'ssblåbær.jpg',
+        tags: [ 'blåbær' ],
+        chilis: [ 'Ghost' ]
+    }
+    result.push(testObject)
+    
+    const filter = result.filter( (e) => e.name === "Blåbær")
+    console.log(filter)
+
+    console.log("Writing to file...")
+
+    fs.writeFile("./data/sauces.json", JSON.stringify(result), (err) => {
+        if (err)
+            console.log(err);
+        else {
+            console.log("File written successfully\n");
+        }
+    })
 }
 
 exports.createSauce = async (req, res, next) => {
     console.log("Create sauce controller fired...")
     // console.log(req.body)
-
-    addRemoteRepository()
-    pushToRemote()
     
     res.status(200).json({
         type: "success",
@@ -36,5 +60,8 @@ exports.createSauce = async (req, res, next) => {
         // post,
         },
     });
+
+    await writeFile()
+    await pushToBranch()
     
 }
