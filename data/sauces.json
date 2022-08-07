@@ -75,5 +75,14 @@
     "tags": [ "allrounder" ],
     "chilis": [ "Reaper" ],
     "hotones": true
+  },
+  {
+    "chilis": [ "dsadas", "adad" ],
+    "brand": "asd",
+    "name": "asd",
+    "strength": "1",
+    "descr": "adsasd",
+    "imgurl": "asdasd.jpg",
+    "tags": [ "asd" ]
   }
 ]
