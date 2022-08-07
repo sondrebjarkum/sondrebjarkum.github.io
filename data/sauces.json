@@ -65,5 +65,15 @@
     "tags": [ "TEST99", "TEST99" ],
     "chilis": [ "TEST99", "TEST99" ],
     "hotones": true
+  },
+  {
+    "brand": "SondresSAUS",
+    "name": "Cryo",
+    "strength": "9",
+    "descr": "asdasd",
+    "imgurl": "asdasd.jpg",
+    "tags": [ "allrounder" ],
+    "chilis": [ "Reaper" ],
+    "hotones": true
   }
 ]
