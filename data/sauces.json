@@ -55,5 +55,15 @@
     "tags": [ "test9" ],
     "chilis": [ "test9" ],
     "hotones": true
+  },
+  {
+    "brand": "TEST99",
+    "name": "TEST99",
+    "strength": "1",
+    "desc": "TEST99 TEST99TEST99 TEST99 TEST99 TEST99TEST99",
+    "imgurl": "TEST99.JPG",
+    "tags": [ "TEST99", "TEST99" ],
+    "chilis": [ "TEST99", "TEST99" ],
+    "hotones": true
   }
 ]
